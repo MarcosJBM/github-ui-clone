@@ -1,8 +1,13 @@
+import { Container, Githublogo, SearchForm } from "./styles";
+
 const Header = () => {
   return (
-    <div>
-      <header></header>
-    </div>
+    <Container>
+      <Githublogo />
+      <SearchForm>
+        <input type='text' />
+      </SearchForm>
+    </Container>
   );
 };
 
