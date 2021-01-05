@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
+
 import Profile from "./pages/Profile";
 import Repo from "./pages/Repo";
+
+import GlobalStyles from "./styles/GlobalStyles";
 
 const App = () => {
   return (
@@ -14,6 +17,8 @@ const App = () => {
         <Route path='/:username/:repo' element={<Repo />} />
       </Routes>
       {/* <Footer /> */}
+
+      <GlobalStyles />
     </BrowserRouter>
   );
 };
