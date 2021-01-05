@@ -1,8 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./components/Header";
+import Profile from "./pages/Profile";
+import Repo from "./pages/Repo";
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Profile />} />
+        <Route path='/:username' element={<Profile />} />
+        <Route path='/:username/:repo' element={<Repo />} />
+      </Routes>
+      {/* <Footer /> */}
+    </BrowserRouter>
   );
 };
 
