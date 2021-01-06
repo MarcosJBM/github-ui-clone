@@ -1,6 +1,7 @@
 import ProfileData from "../../components/ProfileData";
+import RepoCard from "../../components/RepoCard";
 
-import { Container, Main, LeftSide, RightSide } from "./styles";
+import { Container, Main, LeftSide, RightSide, Repos } from "./styles";
 
 const Profile = () => {
   return (
@@ -21,7 +22,25 @@ const Profile = () => {
             blog={"Something"}
           />
         </LeftSide>
-        <RightSide></RightSide>
+        <RightSide>
+          <Repos>
+            <h2>Random Repos</h2>
+
+            <div>
+              {[1, 2, 3, 4, 5, 6].map(n => (
+                <RepoCard
+                  key={n}
+                  username={"marcosjbm"}
+                  reponame={"youtube-content"}
+                  description={"Contains all of my Youtube lessons code"}
+                  language={n % 3 === 0 ? "JavaScript" : "TypeScript"}
+                  stars={8}
+                  forks={3}
+                />
+              ))}
+            </div>
+          </Repos>
+        </RightSide>
       </Main>
     </Container>
   );
