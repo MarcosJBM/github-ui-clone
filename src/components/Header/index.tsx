@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ThemeName } from "../../styles/themes";
 import { Container, Githublogo, SearchForm } from "./styles";
 
-const Header = () => {
+interface Props {
+  themeName: ThemeName;
+  setThemeName: (newTheme: ThemeName) => void;
+}
+
+const Header = ({ themeName, setThemeName }: Props) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -12,9 +18,13 @@ const Header = () => {
     navigate("/" + search.toLocaleLowerCase().trim());
   }
 
+  function toggleTheme() {
+    setThemeName(themeName === "light" ? "dark" : "light");
+  }
+
   return (
     <Container>
-      <Githublogo />
+      <Githublogo onClick={toggleTheme} />
       <SearchForm onSubmit={handleSubmit}>
         <input
           type='text'
